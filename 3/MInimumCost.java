@@ -10,13 +10,11 @@ class UnionFind {
         for (int i = 0; i < n; i++) {
             parent[i] = i;
             rank[i] = 0;
-        }
-    }
+        }}
 
     public int find(int x) {
         if (parent[x] != x) {
-            parent[x] = find(parent[x]);  // Path compression
-        }
+            parent[x] = find(parent[x]);  }// Path compression
         return parent[x];
     }
 
@@ -27,7 +25,6 @@ class UnionFind {
         if (rootX == rootY) {
             return false;  // Already connected
         }
-
         // Union by rank
         if (rank[rootX] > rank[rootY]) {
             parent[rootY] = rootX;
@@ -38,8 +35,7 @@ class UnionFind {
             rank[rootX]++;
         }
         return true;
-    }
-}
+    }}
 
 public class MInimumCost {
 
@@ -50,7 +46,6 @@ public class MInimumCost {
         for (int i = 0; i < n; i++) {
             edges.add(new int[] {modules[i], n, i});
         }
-
         // Add actual connections
         for (int[] connection : connections) {
             int device1 = connection[0] - 1; // Convert to 0-based index
@@ -58,14 +53,11 @@ public class MInimumCost {
             int cost = connection[2];
             edges.add(new int[] {cost, device1, device2});
         }
-
         // Sort edges by cost
         edges.sort(Comparator.comparingInt(a -> a[0]));
-
         UnionFind uf = new UnionFind(n + 1); // Extra node for module installation
         int totalCost = 0;
         int edgesUsed = 0;
-
         // Kruskal’s MST Algorithm
         for (int[] edge : edges) {
             int cost = edge[0];
@@ -77,10 +69,7 @@ public class MInimumCost {
                 edgesUsed++;
                 if (edgesUsed == n) { // Minimum spanning tree is complete
                     break;
-                }
-            }
-        }
-
+                }}}
         return totalCost;
     }
 
@@ -93,5 +82,5 @@ public class MInimumCost {
         };
         
         System.out.println(minTotalCost(n, modules, connections)); // Output: 3
-    }
-}
+    }}
+

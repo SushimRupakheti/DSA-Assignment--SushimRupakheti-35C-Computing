@@ -103,7 +103,7 @@ class ThreadController {
 
 public class numPrinter{
     public static void main(String[] args) {
-        int n = 6;
+        int n = 9;
         NumberPrinter printer = new NumberPrinter();
         ThreadController controller = new ThreadController(n, printer);
 
@@ -144,3 +144,6 @@ public class numPrinter{
         }
     }
 }
+
+
+
